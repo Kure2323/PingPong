@@ -1,19 +1,25 @@
 package org.example;
 
 import java.util.Scanner;
+//PIC = Sonido raqueta
+//POC = Sonido borda (useless)
+//PONG! = Sonido WIN
 
 public class Main {
     public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in);
 
-        String datos = entrada.nextLine();
 
-        boolean bien = Funciones.Seguir(datos);
+        while (true) {
+            String datos = entrada.nextLine();
+            if (Funciones.Seguir(datos)) {
+                break;
+            }
+            String[] vector = datos.split(" ");
+            Funciones.Datos(vector);
 
+        }
 
-        String[] vector = datos.split(" ");
-
-        Funciones.Datos(vector);
 
     }
 }
