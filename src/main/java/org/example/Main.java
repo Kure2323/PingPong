@@ -6,9 +6,11 @@ import java.util.Scanner;
 //PONG! = Sonido WIN
 
 public class Main {
-    public static void main(String[] args) {
-        Scanner entrada = new Scanner(System.in);
+    static boolean turno = true; //TRUE = DERECHA | FALSE = IZQUIERDA
 
+    public static void main(String[] args) {
+
+        Scanner entrada = new Scanner(System.in);
 
         while (true) {
             String datos = entrada.nextLine();
@@ -16,7 +18,9 @@ public class Main {
                 break;
             }
             String[] vector = datos.split(" ");
-            Funciones.Datos(vector);
+            Funciones.Comprobador(vector);
+            System.out.println(Funciones.Puntuaciones(vector));
+
 
         }
 
