@@ -6,22 +6,22 @@ public class Funciones {
 
     public static void Comprobador(String[] array) {
 
-        boolean salida = false;
+        boolean salida = false; //Boolean para comprobar errores
 
         try{
-            if (Integer.parseInt(array[0]) != array.length - 1) {
+            if (Integer.parseInt(array[0]) != array.length - 1) { //Comprueba que el número introducido es igual a la cantidad de valores
                 salida = true;
             }
-        } catch (NumberFormatException e) {
+        } catch (NumberFormatException e) { //En caso de introducir un valor NO numérico
             salida = true;
         }
 
-        for (int i = 1; i < array.length; i++) {
+        for (int i = 1; i < array.length; i++) { //Comprueba que la entrada sea adecuada
             if (!array[i].equals("PIC") && !array[i].equals("POC") && !array[i].equals("PONG!")) {
                 salida = true;
             }
         }
-        if (salida == true) {
+        if (salida == true) { //Salta en caso de boolean true
             System.out.println("Error de formato.");
             System.exit(0);
         }

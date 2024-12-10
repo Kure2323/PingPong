@@ -13,6 +13,7 @@ public class Main {
         Scanner entrada = new Scanner(System.in);
 
         while (true) {
+
             String datos = entrada.nextLine();
             if (Funciones.Seguir(datos)) {
                 break;
@@ -20,7 +21,6 @@ public class Main {
             String[] vector = datos.split(" ");
             Funciones.Comprobador(vector);
             System.out.println(Funciones.Puntuaciones(vector));
-
 
         }
 
