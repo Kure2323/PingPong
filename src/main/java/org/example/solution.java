@@ -1,8 +1,36 @@
 package org.example;
+import java.util.Scanner;
+//PIC = Sonido raqueta
+//POC = Sonido borda (useless)
+//PONG! = Sonido WIN
 
-import static org.example.Main.turno;
+public class solution {
 
-public class Funciones {
+    static boolean turno = true; //TRUE = DERECHA | FALSE = IZQUIERDA
+    static Scanner entrada;
+
+    public static boolean casoDePrueba() {
+
+        entrada = new Scanner(System.in);
+        String datos = entrada.nextLine();
+        if (datos.equals("0")) {
+            return false;
+        } else {
+
+            String[] vector = datos.split(" ");
+            solution.Comprobador(vector);
+            System.out.println(solution.Puntuaciones(vector));
+
+            return true;
+        }
+    }
+
+    public static void main(String[] args) {
+
+        while (casoDePrueba()) {
+        }
+
+    } // main
 
     public static void Comprobador(String[] array) {
 
@@ -29,15 +57,6 @@ public class Funciones {
 
     } //Comprueba el formato de entrada
 
-    public static boolean Seguir(String entrada) {
-
-        if (entrada.equals("0")) {
-            return true;
-        } else {
-            return false;
-        }
-    } //Comprueba la entrada si es = 0 para salir o no para seguir
-
     public static void CambioTurno() {
 
         if (turno == true) {
@@ -54,7 +73,7 @@ public class Funciones {
         for (int j = 1; j < vector.length; j++) {
 
             if (vector[j].equals("PIC")) {
-                Funciones.CambioTurno();
+                solution.CambioTurno();
             } else if (vector[j].equals("PONG!")) {
                 if (turno == true) {
                     i++;
@@ -68,7 +87,5 @@ public class Funciones {
         String puntuaciones = i + " " + d;
 
         return puntuaciones;
-
-
     } //Sistema de puntuaciones conforme al turno
 }
