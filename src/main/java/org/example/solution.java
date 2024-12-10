@@ -4,6 +4,11 @@ import java.util.Scanner;
 //POC = Sonido borda (useless)
 //PONG! = Sonido WIN
 
+/**
+ * @author Pol Gorrindo Bermejo
+ * @version 0.9 (10/12/2024)
+ * Quiero que el puto Juez me de el visto weno
+ */
 public class solution {
 
     static boolean turno = true; //TRUE = DERECHA | FALSE = IZQUIERDA
@@ -12,12 +17,11 @@ public class solution {
     public static boolean casoDePrueba() {
 
         entrada = new Scanner(System.in);
-        String datos = entrada.nextLine();
-        if (datos.equals("0")) {
+        String[] vector = entrada.nextLine().split(" ");
+        if (vector[0].equals("0") && vector.length == 1) {
             return false;
         } else {
 
-            String[] vector = datos.split(" ");
             solution.Comprobador(vector);
             System.out.println(solution.Puntuaciones(vector));
 
@@ -32,6 +36,11 @@ public class solution {
 
     } // main
 
+    /**
+     * Método que realiza una comprobación sobre el vector introducido
+     * Incluye (Long del array, Try-catch, Entrada == PIC/POC/PONG!)
+     * @param array
+     */
     public static void Comprobador(String[] array) {
 
         boolean salida = false; //Boolean para comprobar errores
@@ -50,13 +59,15 @@ public class solution {
             }
         }
         if (salida == true) { //Salta en caso de boolean true
-            System.out.println("Error de formato.");
             System.exit(0);
         }
 
 
     } //Comprueba el formato de entrada
 
+    /**
+     * Método para cambiar el valor del boolean 'turno'
+     */
     public static void CambioTurno() {
 
         if (turno == true) {
@@ -67,9 +78,14 @@ public class solution {
 
     } //Realiza un cambio de valor al boolean 'turno'
 
+    /**
+     * Calcula la relación entre PIC y PONG!s con ayuda del 'turno' y obtiene las soluciones
+     * @param vector
+     * @return
+     */
     public static String Puntuaciones(String[] vector) {
-        int i = 0;
-        int d = 0;
+        Long i = 0L;
+        Long d = 0L;
         for (int j = 1; j < vector.length; j++) {
 
             if (vector[j].equals("PIC")) {
@@ -84,8 +100,7 @@ public class solution {
             }
 
         }
-        String puntuaciones = i + " " + d;
 
-        return puntuaciones;
+        return i + " " + d;
     } //Sistema de puntuaciones conforme al turno
 }
