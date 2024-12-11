@@ -8,21 +8,25 @@ import java.util.Scanner;
  * @author Pol Gorrindo Bermejo
  * @version 0.9 (10/12/2024)
  * Quiero que el puto Juez me de el visto weno
+ * Reparado: RTE: de la clase Scanner
+ * Fallos: WA de qué?
  */
 public class solution {
 
     static boolean turno = true; //TRUE = DERECHA | FALSE = IZQUIERDA
-    static Scanner entrada;
+    static Scanner entrada = new Scanner(System.in);
 
     public static boolean casoDePrueba() {
 
-        entrada = new Scanner(System.in);
         String[] vector = entrada.nextLine().split(" ");
+
         if (vector[0].equals("0") && vector.length == 1) {
             return false;
         } else {
 
-            solution.Comprobador(vector);
+            if (Comprobador(vector)) {
+                return false;
+            }
             System.out.println(solution.Puntuaciones(vector));
 
             return true;
@@ -41,7 +45,7 @@ public class solution {
      * Incluye (Long del array, Try-catch, Entrada == PIC/POC/PONG!)
      * @param array
      */
-    public static void Comprobador(String[] array) {
+    public static boolean Comprobador(String[] array) {
 
         boolean salida = false; //Boolean para comprobar errores
 
@@ -56,10 +60,16 @@ public class solution {
         for (int i = 1; i < array.length; i++) { //Comprueba que la entrada sea adecuada
             if (!array[i].equals("PIC") && !array[i].equals("POC") && !array[i].equals("PONG!")) {
                 salida = true;
+                break;
             }
         }
-        if (salida == true) { //Salta en caso de boolean true
-            System.exit(0);
+        if (!array[array.length - 1].equals("PONG!")) {
+            salida = true;
+        }
+        if (salida) { //Cuando es true significa que hay algún error
+            return true;
+        } else {
+            return false;
         }
 
 
@@ -70,11 +80,7 @@ public class solution {
      */
     public static void CambioTurno() {
 
-        if (turno == true) {
-            turno = false;
-        } else {
-            turno = true;
-        }
+        turno = !turno;
 
     } //Realiza un cambio de valor al boolean 'turno'
 
@@ -84,14 +90,14 @@ public class solution {
      * @return
      */
     public static String Puntuaciones(String[] vector) {
-        Long i = 0L;
-        Long d = 0L;
+        int i = 0;
+        int d = 0;
         for (int j = 1; j < vector.length; j++) {
 
             if (vector[j].equals("PIC")) {
                 solution.CambioTurno();
             } else if (vector[j].equals("PONG!")) {
-                if (turno == true) {
+                if (turno) {
                     i++;
                 } else {
                     d++;
