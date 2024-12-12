@@ -16,6 +16,11 @@ public class solution {
     static boolean turno = true; //TRUE = DERECHA | FALSE = IZQUIERDA
     static Scanner entrada = new Scanner(System.in);
 
+    /**
+     * Método donde se introduce y verifica cada caso de prueba
+     * @return true: en caso de que el número introducido no sea '0'
+     * false: en caso de que el número introducido sea '0' provocará el cierre del programa
+     */
     public static boolean casoDePrueba() {
 
         String[] vector = entrada.nextLine().split(" ");
@@ -24,10 +29,10 @@ public class solution {
             return false;
         } else {
 
-            if (Comprobador(vector)) {
+            if (comprobador(vector)) {
                 return false;
             }
-            System.out.println(solution.Puntuaciones(vector));
+            System.out.println(solution.puntuaciones(vector));
 
             return true;
         }
@@ -43,9 +48,9 @@ public class solution {
     /**
      * Método que realiza una comprobación sobre el vector introducido
      * Incluye (Long del array, Try-catch, Entrada == PIC/POC/PONG!)
-     * @param array
+     * @param array de entrada
      */
-    public static boolean Comprobador(String[] array) {
+    public static boolean comprobador(String[] array) {
 
         boolean salida = false; //Boolean para comprobar errores
 
@@ -76,27 +81,20 @@ public class solution {
     } //Comprueba el formato de entrada
 
     /**
-     * Método para cambiar el valor del boolean 'turno'
-     */
-    public static void CambioTurno() {
-
-        turno = !turno;
-
-    } //Realiza un cambio de valor al boolean 'turno'
-
-    /**
      * Calcula la relación entre PIC y PONG!s con ayuda del 'turno' y obtiene las soluciones
-     * @param vector
-     * @return
+     * @param vector de entrada
+     * @return el resultado de las puntuaciones
      */
-    public static String Puntuaciones(String[] vector) {
+    public static String puntuaciones(String[] vector) {
         int i = 0;
         int d = 0;
         for (int j = 1; j < vector.length; j++) {
 
             if (vector[j].equals("PIC")) {
-                solution.CambioTurno();
+                turno = !turno;
+
             } else if (vector[j].equals("PONG!")) {
+
                 if (turno) {
                     i++;
                 } else {
