@@ -6,14 +6,10 @@ import java.util.Scanner;
 
 /**
  * @author Pol Gorrindo Bermejo
- * @version 0.9 (10/12/2024)
- * Quiero que el puto Juez me de el visto weno
- * Reparado: RTE: de la clase Scanner
- * Fallos: WA de qué?
+ * @version 1.0 (10/12/2024) aceptado por el Juez
  */
 public class solution {
 
-    static boolean turno = true; //TRUE = DERECHA | FALSE = IZQUIERDA
     static Scanner entrada = new Scanner(System.in);
 
     /**
@@ -25,7 +21,7 @@ public class solution {
 
         String[] vector = entrada.nextLine().split(" ");
 
-        if (vector[0].equals("0") && vector.length == 1) {
+        if (vector[0].equals("0")) {  //Identifica si la entrada es '0' y devuelve false para cerrar el programa
             return false;
         } else {
 
@@ -88,6 +84,7 @@ public class solution {
     public static String puntuaciones(String[] vector) {
         int i = 0;
         int d = 0;
+        boolean turno = true;
         for (int j = 1; j < vector.length; j++) {
 
             if (vector[j].equals("PIC")) {
@@ -99,7 +96,7 @@ public class solution {
                     i++;
                 } else {
                     d++;
-                    turno = true;
+
                 }
             }
 
