@@ -25,7 +25,7 @@ public class solution {
             return false;
         } else {
 
-            if (comprobador(vector)) {
+            if (comprobador1(vector) || comprobador2(vector) || comprobador3(vector)) {
                 return false;
             }
             System.out.println(solution.puntuaciones(vector));
@@ -46,34 +46,31 @@ public class solution {
      * Incluye (Long del array, Try-catch, Entrada == PIC/POC/PONG!)
      * @param array de entrada
      */
-    public static boolean comprobador(String[] array) {
+    public static boolean comprobador1(String[] array) {
 
-        boolean salida = false; //Boolean para comprobar errores
-
-        try{
+        try {
             if (Integer.parseInt(array[0]) != array.length - 1) { //Comprueba que el número introducido es igual a la cantidad de valores
-                salida = true;
+                return true;
             }
         } catch (NumberFormatException e) { //En caso de introducir un valor NO numérico
-            salida = true;
+            return true;
         }
-
+        return false;
+    }
+    public static boolean comprobador2(String[] array) {
         for (int i = 1; i < array.length; i++) { //Comprueba que la entrada sea adecuada
             if (!array[i].equals("PIC") && !array[i].equals("POC") && !array[i].equals("PONG!")) {
-                salida = true;
-                break;
+                return true;
             }
         }
+        return false;
+    }
+    public static boolean comprobador3(String[] array) {
+
         if (!array[array.length - 1].equals("PONG!")) {
-            salida = true;
-        }
-        if (salida) { //Cuando es true significa que hay algún error
             return true;
-        } else {
-            return false;
         }
-
-
+        return false;
     } //Comprueba el formato de entrada
 
     /**

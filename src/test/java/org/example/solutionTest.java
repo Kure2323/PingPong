@@ -20,10 +20,10 @@ class solutionTest {
     void comprobador() {
 
         assertAll(
-                () -> assertFalse(solution.comprobador(array)),
-                () -> assertTrue(solution.comprobador(patata)),
-                () -> assertFalse(solution.comprobador(prueba2)),
-                () -> assertTrue(solution.comprobador(prueba3))
+                () -> assertFalse(solution.comprobador1(array)),
+                () -> assertTrue(solution.comprobador1(patata)),
+                () -> assertFalse(solution.comprobador1(prueba2)),
+                () -> assertTrue(solution.comprobador1(prueba3))
 
         );
 
