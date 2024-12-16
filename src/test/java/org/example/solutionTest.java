@@ -17,7 +17,7 @@ class solutionTest {
     }
 
     @Test
-    void comprobador() {
+    void comprobador1() {
 
         assertAll(
                 () -> assertFalse(solution.comprobador1(array)),
@@ -27,6 +27,19 @@ class solutionTest {
 
         );
 
+    }
+    @Test
+    void comprobador2() {
+
+        assertAll(
+
+        );
+    }
+    @Test
+    void comprobador3() {
+        assertAll(
+                
+        );
     }
 
     @Test

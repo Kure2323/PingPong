@@ -42,9 +42,8 @@ public class solution {
     } // main
 
     /**
-     * Método que realiza una comprobación sobre el vector introducido
-     * Incluye (Long del array, Try-catch, Entrada == PIC/POC/PONG!)
-     * @param array de entrada
+     * Método que realiza una comprobación sobre que el número y la cantidad de sonidos sea igual
+     * @param array
      */
     public static boolean comprobador1(String[] array) {
 
@@ -57,6 +56,12 @@ public class solution {
         }
         return false;
     }
+
+    /**
+     * Método de comprobación de que sea PIC POC o PONG!
+     * @param array
+     * @return
+     */
     public static boolean comprobador2(String[] array) {
         for (int i = 1; i < array.length; i++) { //Comprueba que la entrada sea adecuada
             if (!array[i].equals("PIC") && !array[i].equals("POC") && !array[i].equals("PONG!")) {
@@ -65,6 +70,12 @@ public class solution {
         }
         return false;
     }
+
+    /**
+     * Método de coprobación de que la última posición sea PONG!
+     * @param array
+     * @return
+     */
     public static boolean comprobador3(String[] array) {
 
         if (!array[array.length - 1].equals("PONG!")) {
