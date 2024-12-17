@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 /**
  * @author Pol Gorrindo Bermejo
- * @version 1.0 (10/12/2024) aceptado por el Juez
+ * @version 1.1 (17/12/2024) aceptado por el Juez
  */
 public class solution {
 
@@ -14,8 +14,8 @@ public class solution {
 
     /**
      * Método donde se introduce y verifica cada caso de prueba
-     * @return true: en caso de que el número introducido no sea '0'
-     * false: en caso de que el número introducido sea '0' provocará el cierre del programa
+     * @return True: en caso de que el número introducido no sea '0'
+     * False: en caso de que el número introducido sea '0' provocará el cierre del programa
      */
     public static boolean casoDePrueba() {
 
@@ -43,7 +43,8 @@ public class solution {
 
     /**
      * Método que realiza una comprobación sobre que el número y la cantidad de sonidos sea igual
-     * @param array
+     * @param array Entrada formada por los sonidos
+     * @return Boolean: True cuando hay un error
      */
     public static boolean comprobador1(String[] array) {
 
@@ -59,8 +60,8 @@ public class solution {
 
     /**
      * Método de comprobación de que sea PIC POC o PONG!
-     * @param array
-     * @return
+     * @param array Entrada formada por los sonidos
+     * @return Boolean: True cuando hay un error
      */
     public static boolean comprobador2(String[] array) {
         for (int i = 1; i < array.length; i++) { //Comprueba que la entrada sea adecuada
@@ -73,8 +74,8 @@ public class solution {
 
     /**
      * Método de coprobación de que la última posición sea PONG!
-     * @param array
-     * @return
+     * @param array Entrada formada por los sonidos
+     * @return Boolean: True cuando hay un error
      */
     public static boolean comprobador3(String[] array) {
 
@@ -86,8 +87,8 @@ public class solution {
 
     /**
      * Calcula la relación entre PIC y PONG!s con ayuda del 'turno' y obtiene las soluciones
-     * @param vector de entrada
-     * @return el resultado de las puntuaciones
+     * @param vector Entrada formada por los sonidos
+     * @return Resultado de las puntuaciones
      */
     public static String puntuaciones(String[] vector) {
         int i = 0;
